@@ -22,4 +22,10 @@ def get_dataset(image_path, image_type, resize_shape, channels):
         return decode_image(filename, image_type, resize_shape, channels=channels)
     return dataset.map(_map_fn)
 
+# Get the decoded image data from the input image file path
+def get_image_data(image_paths, iamge_type=None, resize_type=None, channels=0):
+    dataset = get_dataset(image_paths, iamge_type, resize_shape, channels)
+    iterator = dataset.make_one_shot_iterator()
+    next_image = iterator.get_naext()
+
 
