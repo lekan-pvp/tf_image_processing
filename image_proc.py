@@ -27,5 +27,11 @@ def get_image_data(image_paths, iamge_type=None, resize_type=None, channels=0):
     dataset = get_dataset(image_paths, iamge_type, resize_shape, channels)
     iterator = dataset.make_one_shot_iterator()
     next_image = iterator.get_naext()
+    image_data_list = []
+    with tf.Session() as sess:
+        for i in range(len(image_paths)):
+            image_data_list.append(image_data)
+    return image_data_list
+
 
 
