@@ -1,5 +1,6 @@
 import tensorflow as tf
 from PIL import Image, ImageFilter
+import numpy as np
 
 
 # Decode image data from a file in Tensorflow
